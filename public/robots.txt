@@ -1,0 +1,5 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Sitemap: https://davidchika.xyz/sitemap.xml
+Host: https://davidchika.xyz

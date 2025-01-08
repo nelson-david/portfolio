@@ -1,0 +1,943 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+    --inter: "Inter", sans-serif;
+    --custom-green: #f3cf7a;
+    --green-fade-1: #f3cf7a33;
+    --slate: #ffffff;
+    --light-slate: #ffffff;
+    --lightest-slate: #ffffff;
+    --navy: #000000;
+    --light-navy: #0a0a0d;
+    --nav-bg: #0a0a0a;
+    --white: rgba(255, 255, 255, 0.8);
+    --mobilep-bg: rgba(0, 0, 0, 0.9);
+    --lightest-navy: #0f0f0f;
+    --navy-shadow: rgba(2, 12, 27, 0.7);
+    --dark-slate: #495670;
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+body {
+    font-family: var(--inter);
+    background-color: var(--navy) !important;
+    background-image: url("../assets/images/texture.webp");
+    background-size: cover;
+    background-attachment: fixed;
+    -moz-osx-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -webkit-user-zoom: none !important;
+    -moz-user-zoom: none !important;
+    -moz-touch-callout: none !important;
+    -webkit-touch-callout: none !important;
+    scroll-behavior: smooth !important;
+}
+html {
+    scroll-behavior: smooth !important;
+}
+a {
+    text-decoration: none !important;
+    -moz-touch-callout: none !important;
+    -webkit-touch-callout: none x !important;
+}
+img {
+    -moz-touch-callout: none !important;
+    -webkit-touch-callout: none !important;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--custom-green);
+    border-radius: 10px;
+}
+::selection {
+    background-color: var(--lightest-navy);
+    color: var(--lightest-slate);
+}
+
+.App {
+    padding: 40px 130px;
+    padding-bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    scroll-behavior: smooth !important;
+}
+#scrollContainer {
+    scroll-behavior: smooth !important;
+}
+#scrollContainer section {
+    scroll-snap-type: y mandatory !important;
+}
+
+.customNav {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: var(--transition);
+    filter: none !important;
+    pointer-events: auto !important;
+    user-select: auto !important;
+}
+.customNav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin: 0px;
+    list-style: none;
+}
+.customNav ul#mobileNav {
+    display: none;
+}
+.customNav ul div {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+.customNav ul div li {
+    border: none;
+}
+.customNav ul div:last-child li {
+    margin: 0px 5px;
+}
+.customNav ul div li a {
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    font-size: 15px;
+    letter-spacing: -0.4px;
+    display: block;
+    padding: 10px 25px;
+    color: var(--lightest-slate);
+    transition: 0.4s all ease-in-out;
+    cursor: pointer;
+}
+.customNav ul div li a:hover {
+    color: var(--custom-green);
+}
+.customNav ul div li a#buttonLink {
+    border: 1px solid var(--custom-green);
+    color: var(--custom-green);
+    padding: 11px 30px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.customNav ul div li a#buttonLink:hover {
+    background-color: var(--custom-green);
+    color: var(--navy);
+}
+.customNav ul div li a#logo {
+    display: flex;
+    align-items: center;
+    padding: 0px;
+    font-size: 21px;
+    font-family: var(--inter);
+    font-weight: 700 !important;
+    color: var(--lightest-slate);
+    letter-spacing: -0.7px;
+}
+.customNav ul div li a#logo span {
+    color: var(--custom-green);
+}
+
+/* Mobile Sidebar */
+.mobileSidebar {
+    width: 100%;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 5000 !important;
+}
+aside {
+    height: 100%;
+    background-color: var(--navy);
+    z-index: 5500 !important;
+}
+aside ul {
+    display: block;
+    padding: 30px 20px;
+    margin: 0px;
+    list-style: none;
+}
+aside ul li {
+    margin: 20px 0px;
+}
+aside ul li a {
+    display: block;
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 500 !important;
+    letter-spacing: -0.5px;
+    color: var(--light-slate);
+    font-family: var(--inter);
+}
+
+/* Custom Nav */
+.customSidebar {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.customSidebar .bars {
+    width: 120px;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.customSidebar .bars ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    pointer-events: all;
+}
+.customSidebar .bars ul::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0px auto;
+    margin-top: 30px;
+    background-color: var(--light-slate);
+}
+.customSidebar .bars ul li {
+    margin: 10px 0px;
+}
+.customSidebar .bars ul li a {
+    font-size: 19px;
+    color: var(--lightest-slate);
+    transition: 0.4s all ease-in-out;
+    display: block;
+    padding: 5px;
+}
+.customSidebar .bars ul li a:hover {
+    color: var(--custom-green);
+    transform: scale(1.3);
+}
+#verticalWriting {
+    writing-mode: vertical-rl;
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+}
+#verticalWriting:hover {
+    transform: scale(1);
+}
+
+/* App Header Styling */
+.App .headerSection {
+    border: none;
+}
+.App .headerSection span.caption {
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    font-size: 0.95rem;
+    color: var(--custom-green);
+    letter-spacing: -0.4px;
+    display: inline-block;
+    padding: 0px 5px;
+}
+.App .headerSection h1.title {
+    color: var(--lightest-slate);
+    font-weight: 600 !important;
+    padding: 20px 0px;
+    margin: 0px;
+    display: block;
+    font-family: var(--inter);
+    font-size: 6rem;
+    line-height: 109%;
+    letter-spacing: -2.5px;
+}
+.App .headerSection h1.title span {
+    display: block;
+    color: var(--light-slate);
+    padding: 5px 0px;
+}
+.App .headerSection h1.title span i {
+    font-style: normal;
+    color: var(--custom-green);
+}
+.App .headerSection p.subtitle {
+    padding: 0px 5px;
+    margin: 0px;
+    display: block;
+    width: 620px;
+    line-height: 28px;
+    color: var(--lightest-slate);
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    font-size: 0.95rem;
+    letter-spacing: -0.13px;
+}
+.App .headerSection div.buttonDiv {
+    padding: 55px 4px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.App .headerSection div.buttonDiv a {
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    transition: 0.4s all ease-in-out;
+    border: 1px solid var(--custom-green);
+    color: var(--custom-green);
+    padding: 15px 30px;
+    border-radius: 15px;
+    background-color: transparent;
+    letter-spacing: -0.3px;
+}
+.App .headerSection div.buttonDiv a:last-child {
+    background-color: var(--custom-green);
+    color: var(--navy);
+}
+
+.App .sectionHeader {
+    border: none;
+}
+.App .sectionHeader i {
+    display: block;
+    text-align: center;
+    color: var(--custom-green);
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+}
+.App .sectionHeader h5 {
+    color: var(--lightest-slate);
+    font-size: 50px;
+    font-family: var(--inter);
+    font-weight: 700 !important;
+    margin: 0px;
+    padding: 18px 0px;
+    text-align: center;
+    letter-spacing: -1px;
+    text-shadow: 4px 3px 10px var(--navy-shadow);
+}
+.App .sectionHeader h3 {
+    color: var(--lightest-slate);
+    font-size: 25px;
+    font-family: var(--inter);
+    font-weight: 600 !important;
+    margin: 0px;
+    padding: 15px 0px;
+    text-shadow: 4px 3px 10px var(--navy-shadow);
+}
+.App .sectionHeader p {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    color: var(--slate);
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    line-height: 25px;
+}
+.App .sectionHeader a#archiveURL {
+    color: var(--custom-green);
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    font-size: 13px;
+    word-spacing: 6px;
+    padding: 0px;
+    text-align: center;
+    letter-spacing: 0.8px;
+    border-bottom: 1px solid var(--navy);
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+        opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s,
+        transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.4s;
+}
+.App .sectionHeader a#archiveURL:hover {
+    border-bottom: 1px solid var(--custom-green);
+}
+.App .sectionHeader span {
+    color: var(--lightest-slate);
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+    font-family: var(--inter);
+    font-weight: 600 !important;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    white-space: nowrap;
+    text-shadow: 4px 3px 10px var(--navy-shadow);
+}
+.App .sectionHeader span::before {
+    position: relative;
+    bottom: 4px;
+    counter-increment: section 1;
+    content: "0" attr(data-counter) ".";
+    margin-right: 10px;
+    color: var(--custom-green);
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.App .sectionHeader span::after {
+    content: "";
+    display: block;
+    position: relative;
+    top: -5px;
+    width: 300px;
+    height: 1px;
+    margin-left: 20px;
+    margin-top: 13px;
+    background-color: var(--lightest-navy);
+}
+
+/* Aboutme Section */
+.App .aboutMeSection {
+    padding: 100px 0px;
+}
+.App .aboutMeSection .imageDiv {
+    border: none;
+    padding: 30px;
+    shape-outside: circle(50%);
+}
+.App .aboutMeSection .imageDiv img {
+    border: 2px dotted var(--custom-green) !important;
+    margin: 0px !important;
+    border-radius: 10px;
+    filter: grayscale(1);
+    padding: 10px !important;
+    transition: 0.4s all ease-in-out;
+    cursor: pointer;
+    object-position: center center;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.App .aboutMeSection .imageDiv img:hover {
+    filter: grayscale(0);
+    border: 2px dotted var(--custom-green) !important;
+}
+
+.App .shortIntroduction {
+    padding: 30px 3px;
+}
+.App .shortIntroduction p {
+    font-family: var(--inter);
+    font-size: 1rem;
+    font-weight: 400 !important;
+    color: var(--slate);
+    padding: 10px 0px;
+    margin: 0px;
+    letter-spacing: -0.3px;
+    line-height: 27px;
+}
+.App .shortIntroduction ul {
+    padding: 20px 0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 200px));
+    gap: 0px 8px;
+    overflow: hidden;
+    list-style: none;
+}
+.App .shortIntroduction ul li {
+    display: block;
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    margin: 10px 0px;
+    color: var(--light-slate);
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+}
+.App .shortIntroduction ul li img {
+    margin-right: 12px !important;
+    transition: 0.3s all ease-in-out;
+    filter: grayscale(100%);
+}
+.App .shortIntroduction ul li:hover img {
+    filter: grayscale(0%);
+}
+
+/* .App .shortIntroduction ul li::before{
+    content: "▹";
+    position: absolute;
+    color: var(--custom-green);
+    font-size: 14px;
+    line-height: 12px;
+	margin-left: -20px;
+	margin-top: 3px;
+} */
+
+/* Work Section */
+.App .workSection {
+    padding: 20px 0px;
+    padding-bottom: 100px;
+}
+.App .workSection .workSectionCard {
+    padding: 30px 0px;
+    display: flex;
+}
+.App .workSection .workSectionCard .workPlaceList {
+    list-style: none;
+    padding: 10px 5px;
+    margin: 0px;
+}
+.App .workSection .workSectionCard .workPlaceList li {
+    color: var(--slate);
+    font-size: 0.85rem;
+    padding: 12px 20px;
+    padding-top: 13px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    letter-spacing: -0.2px;
+    border-left: 2px solid var(--lightest-navy);
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    white-space: nowrap;
+}
+.App .workSection .workSectionCard .workPlaceList li.active {
+    border-left: 2px solid var(--custom-green);
+    color: var(--custom-green);
+}
+.App .workSection .workSectionCard .workPlaceList li:hover {
+    background-color: var(--green-fade-1);
+    color: var(--custom-green);
+}
+.App .workSection .workSectionCard .workPlaceList li:focus {
+    background-color: var(--light-navy);
+    color: var(--custom-green);
+}
+
+.App .workSection .workPlaceDescription {
+    padding: 15px 20px;
+}
+.App .workSection .workPlaceDescription h3 {
+    font-size: 1.1rem;
+    letter-spacing: -0.4px;
+    font-weight: 700 !important;
+    color: var(--lightest-slate);
+    font-family: var(--inter);
+    margin: 0px;
+}
+.App .workSection .workPlaceDescription h3 a {
+    color: var(--custom-green);
+    font-size: 1.2rem;
+}
+.App .workSection .workPlaceDescription h4 {
+    font-size: 14px;
+    font-weight: 500 !important;
+    color: var(--slate);
+    font-family: var(--inter);
+    letter-spacing: -0.5px;
+    margin: 0px;
+    padding: 15px 0px;
+}
+.App .workSection .workPlaceDescription ul {
+    list-style: none;
+    padding: 5px;
+    margin: 0px;
+}
+.App .workSection .workPlaceDescription ul li {
+    padding: 10px 0px;
+    font-family: var(--inter);
+    letter-spacing: -0.1px;
+    font-weight: 400 !important;
+    color: var(--slate);
+    font-size: 15px;
+    display: flex;
+}
+.App .workSection .workPlaceDescription ul li::before {
+    content: "▹";
+    color: var(--custom-green);
+    font-size: 20px;
+    line-height: 12px;
+    margin-left: -8px;
+    margin-top: 3px;
+    margin-right: 10px;
+    display: block;
+}
+
+/* Built Section */
+.App .builtSection {
+    padding: 30px 0px;
+}
+.App .builtSection .projectsDiv {
+    padding: 30px 0px;
+}
+
+.singleProject {
+    padding: 45px 0px;
+}
+
+.singleProject .mobileSingleProject {
+    display: none;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #121212;
+}
+.mobileSingleProjectImageDiv {
+    border-radius: 30px;
+    height: auto !important;
+    width: 100% !important;
+    padding: 0px;
+    overflow: hidden;
+}
+.mobileSingleProjectImageDiv img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 25px;
+    margin: 0px !important;
+    padding: 0px !important;
+    object-fit: cover;
+}
+.singleProject .mobileSingleProject a {
+    display: block;
+    height: 100%;
+}
+.singleProject .mobileSingleProjectContent {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 25px 10px !important;
+}
+.singleProject .mobileSingleProjectContent div span {
+    display: block;
+    font-size: 12px;
+    letter-spacing: -0.3px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    color: var(--custom-green);
+    padding: 0px;
+}
+.singleProject .mobileSingleProjectContent div h3 {
+    color: var(--lightest-slate);
+    padding: 7px 0px;
+    margin: 0px;
+    font-family: var(--inter);
+    font-weight: 600 !important;
+    letter-spacing: -0.5px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.singleProject .mobileSingleProjectContent div .mobileProjectDescription {
+    padding: 30px 0px;
+}
+.singleProject .mobileSingleProjectContent div .mobileProjectDescription p {
+    color: var(--light-slate);
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    line-height: 25px;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+    letter-spacing: -0.5px;
+}
+.singleProject .mobileSingleProjectContent div ul {
+    list-style: none;
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+}
+.singleProject .mobileSingleProjectContent div ul li {
+    color: var(--lightest-slate);
+    font-size: 12px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    margin-right: 14px;
+    letter-spacing: -0.2px;
+    white-space: pre;
+}
+
+.singleProject .singleProjectImgDiv {
+    border: none;
+}
+.singleProject .singleProjectImgDiv a {
+    display: block;
+    border-radius: 38px;
+    padding: 10px;
+    padding-bottom: 4.5px;
+    background-color: var(--green-fade-1);
+    height: auto !important;
+}
+.singleProject .singleProjectImgDiv a img {
+    width: 100% !important;
+    height: 400px !important;
+    object-fit: cover;
+    transition: 0.4s all ease-in-out;
+    border-radius: 30px;
+    cursor: pointer;
+    filter: brightness(40%);
+    background-color: transparent;
+    object-position: top left !important;
+    margin: 0px !important;
+}
+.singleProject:hover .singleProjectImgDiv a img {
+    filter: brightness(95%);
+}
+.singleProject .singleProjectContent {
+    padding: 10px 0px;
+}
+.singleProject .singleProjectContent span {
+    text-align: right;
+    display: block;
+    font-size: 13px;
+    letter-spacing: -0.2px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    color: var(--custom-green);
+    padding: 0px 5px;
+}
+.singleProject.left .singleProjectContent span {
+    text-align: left;
+}
+.singleProject .singleProjectContent h3 {
+    color: var(--lightest-slate);
+    padding: 10px 5px;
+    margin: 0px;
+    font-family: var(--inter);
+    font-weight: 600 !important;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+    text-align: right;
+}
+.singleProject.left .singleProjectContent h3 {
+    text-align: left;
+}
+.singleProject .singleProjectContent .singleProjectDescription {
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    transition: var(--transition);
+    width: 470px;
+    z-index: 2;
+    margin-left: -20%;
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+    background-color: var(--light-navy);
+    border: 2px solid var(--custom-green);
+}
+.singleProject.left .singleProjectContent .singleProjectDescription {
+    margin-left: 0px;
+    z-index: 5;
+    position: relative;
+}
+.singleProject .singleProjectContent .singleProjectDescription p {
+    color: var(--light-slate);
+    font-family: var(--inter);
+    font-weight: 400 !important;
+    line-height: 25px;
+    font-size: 0.95rem;
+    letter-spacing: -0.1px;
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+}
+.singleProject.left .singleProjectContent .singleProjectDescription p {
+    text-align: left;
+}
+.singleProject .singleProjectContent .singleProjectStacks {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 20px 10px;
+    margin: 0px;
+}
+.singleProject .singleProjectContent .singleProjectStacks li {
+    color: var(--lightest-slate);
+    font-size: 13px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    letter-spacing: -0.3px;
+}
+
+/* Note Worth Projects / Blog */
+.App .croppedBlogSection {
+    padding: 100px 0px;
+}
+
+/* Contact Me Section */
+.App .contactMeSection {
+    padding: 80px 0px;
+    padding-bottom: 20px;
+}
+.App .sectionContent {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0px;
+}
+.App .sectionContent a#contactLink {
+    border: 1px solid var(--custom-green);
+    color: var(--custom-green);
+    padding: 15px 35px;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 13px;
+    letter-spacing: -0.3px;
+    font-family: var(--inter);
+    font-weight: 500 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s all ease-in-out;
+}
+.App .sectionContent a#contactLink:hover {
+    background-color: var(--green-fade-1);
+}
+
+/* Footer Styles */
+.customFooter {
+    border: none;
+    padding: 30px 0px;
+}
+.customFooter ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+}
+.customFooter ul li {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600 !important;
+    font-family: var(--inter);
+    color: var(--slate);
+    letter-spacing: -0.2px;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    word-spacing: 4px;
+}
+.customFooter ul li:hover {
+    color: var(--custom-green);
+}
+.customFooter ul.iconsList {
+    border: none;
+    padding: 15px 0px;
+    display: none;
+}
+.customFooter ul.iconsList li {
+    margin: 0px 13px;
+    padding: 0px;
+}
+.customFooter ul.iconsList li a {
+    color: var(--lightest-slate);
+    font-size: 19px;
+    padding: 5px;
+    transition: 0.3s all ease-in-out;
+}
+.customFooter ul.iconsList li a:hover {
+    color: var(--custom-green);
+}
+
+/* Not Found */
+.notFound {
+    width: 100%;
+    height: 100%;
+    z-index: 7000 !important;
+    background-color: #000010;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+.notFound p {
+    margin: 0px;
+    color: var(--lightest-slate);
+    font-family: var(--inter);
+    font-weight: 700 !important;
+    cursor: text;
+    text-align: center;
+}
+.notFound p span {
+    display: block;
+    width: 100%;
+    font-size: 150px;
+    margin: 0px;
+    letter-spacing: -2.5px;
+}
+.notFound p i {
+    font-style: normal;
+    display: block;
+    width: 100%;
+    font-weight: 600 !important;
+    letter-spacing: -0.3px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+.notFound p a {
+    border-radius: 15px;
+    display: inline-block;
+    border: 1px solid var(--custom-green);
+    color: var(--custom-green);
+    padding: 15px 50px;
+    font-weight: 500 !important;
+    font-family: var(--inter);
+    letter-spacing: -0.3px;
+    transition: 0.4s all ease-in-out;
+}
+.notFound p a:hover {
+    background-color: var(--green-fade-1);
+}
+
+/* App Loader */
+.appLoader {
+    width: 100%;
+    height: 100%;
+    z-index: 7000 !important;
+    background-color: #000005;
+    animation: leaves 1s ease-in-out infinite alternate;
+    -webkit-animation: leaves 1s ease-in-out infinite alternate;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+.appLoader p {
+    margin: 0px;
+    color: var(--lightest-slate);
+    font-family: var(--inter);
+    font-weight: 600 !important;
+    cursor: text;
+}
+.appLoader p span {
+    color: var(--custom-green);
+}
+
+@keyframes leaves {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+    }
+    100% {
+        transform: scale(1.8);
+        -webkit-transform: scale(1.8);
+    }
+}
+
+/* --custom-green: rgb(100, 255, 218);
+--green-fade-1: rgba(100, 255, 218, 0.1);
+--syne: 'Syne', sans-serif;
+--maitree: 'Maitree', serif;
+--fira: 'Fira Sans', sans-serif;
+--slate: #8892b0;
+--light-slate: #a8b2d1;
+--lightest-slate: #ccd6f6;
+--navy: #0a192f;
+--light-navy: #112240;
+--lightest-navy: #233554;
+--navy-shadow: rgba(2,12,27,0.7);
+--dark-slate: #495670;
+--transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1); */
